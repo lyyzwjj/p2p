@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: core
+Implementation-Version: 1.0.0
+Built-By: WangZhe
+Implementation-Vendor-Id: cn.wolfcode.p2p
+Build-Jdk: 1.8.0_162
+Implementation-URL: http://projects.spring.io/spring-boot/p2p/core/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

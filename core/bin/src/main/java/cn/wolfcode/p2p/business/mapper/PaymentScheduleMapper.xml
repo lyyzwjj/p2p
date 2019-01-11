@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wolfcode.p2p.business.mapper.PaymentScheduleMapper" >
+  <resultMap id="BaseResultMap" type="cn.wolfcode.p2p.business.domain.PaymentSchedule" >
+    <id column="id" property="id" />
+    <result column="payDate" property="payDate" />
+    <result column="deadLine" property="deadLine" />
+    <result column="totalAmount" property="totalAmount" />
+    <result column="principal" property="principal" />
+    <result column="interest" property="interest" />
+    <result column="monthIndex" property="monthIndex" />
+    <result column="state" property="state" />
+    <result column="bidRequestId" property="bidRequestId" />
+    <result column="bidRequestTitle" property="bidRequestTitle" />
+    <result column="bidRequestType" property="bidRequestType" />
+    <result column="returnType" property="returnType" />
+    <association property="borrowUser" javaType="cn.wolfcode.p2p.base.domain.LoginInfo" columnPrefix="bs_"
+                 resultMap="cn.wolfcode.p2p.base.mapper.LoginInfoMapper.SmallResultMap"/>
+    <collection property="details" ofType="cn.wolfcode.p2p.business.domain.PaymentScheduleDetail" column="id"
+                select="cn.wolfcode.p2p.business.mapper.PaymentScheduleDetailMapper.selectByPaymentScheduleId"/>
+  </resultMap>
+  <insert id="insert" parameterType="cn.wolfcode.p2p.business.domain.PaymentSchedule" useGeneratedKeys="true" keyProperty="id" >
+    insert into paymentschedule (payDate, deadLine, totalAmount, principal, interest, monthIndex, 
+      state, bidRequestId, borrowUser_id, bidRequestTitle, bidRequestType, 
+      returnType)
+    values (#{payDate}, #{deadLine}, #{totalAmount}, #{principal}, #{interest}, #{monthIndex}, 
+      #{state}, #{bidRequestId}, #{borrowUser.id}, #{bidRequestTitle}, #{bidRequestType},
+      #{returnType})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.wolfcode.p2p.business.domain.PaymentSchedule" >
+    update paymentschedule
+    set payDate = #{payDate},
+      deadLine = #{deadLine},
+      totalAmount = #{totalAmount},
+      principal = #{principal},
+      interest = #{interest},
+      monthIndex = #{monthIndex},
+      state = #{state},
+      bidRequestId = #{bidRequestId},
+      borrowUser_id = #{borrowUser.id},
+      bidRequestTitle = #{bidRequestTitle},
+      bidRequestType = #{bidRequestType},
+      returnType = #{returnType}
+    where id = #{id}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select ps.id, payDate, deadLine, totalAmount, principal, interest, monthIndex, ps.state, 
+    bidRequestId, borrowUser_id, bidRequestTitle, bidRequestType, returnType,
+    bs.id bs_id, bs.username bs_username
+    from paymentschedule ps
+    join logininfo bs on ps.borrowUser_id = bs.id
+    where ps.id = #{id}
+  </select>
+  <select id="queryData" resultMap="BaseResultMap">
+  	select ps.id, payDate, deadLine, totalAmount, principal, interest, monthIndex, ps.state, 
+    bidRequestId, borrowUser_id, bidRequestTitle, bidRequestType, returnType,
+    bs.id bs_id, bs.username bs_username
+    from paymentschedule ps
+    join logininfo bs on ps.borrowUser_id = bs.id
+    <include refid="base_where"/>
+    order by monthIndex asc
+  </select>
+  <sql id = "base_where">
+   <where>
+      <if test="beginDate != null">
+        and ps.deadLine >= #{beginDate}
+      </if>
+      <if test="endDate != null">
+        <![CDATA[ and ps.deadLine <= #{endDate} ]]>
+      </if>
+      <if test="state > -1">
+        and ps.state = #{state}
+      </if>
+      <if test="userId != null">
+      	and borrowUser_id = #{userId}
+      </if>
+      <if test="bidRequestId != null">
+      	and bidRequestId = #{bidRequestId}
+      </if>
+    </where>
+  </sql>
+</mapper>
