@@ -12,13 +12,11 @@
         <groupId>cn.wolfcode.p2p</groupId>
         <artifactId>p2p</artifactId>
         <version>1.0.0</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
     <dependencies>
         <dependency>
             <groupId>cn.wolfcode.p2p</groupId>
             <artifactId>core</artifactId>
-            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

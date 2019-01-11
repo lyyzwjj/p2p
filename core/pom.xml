@@ -12,7 +12,6 @@
 		<groupId>cn.wolfcode.p2p</groupId>
 		<artifactId>p2p</artifactId>
 		<version>1.0.0</version>
-		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<dependencies>
 		<dependency>

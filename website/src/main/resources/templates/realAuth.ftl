@@ -5,9 +5,8 @@
     <title>蓝源Eloan-P2P平台</title>
 <#include "common/links-tpl.ftl" />
     <link type="text/css" rel="stylesheet" href="/css/account.css" />
-    <script type="text/javascript" src="/js/plugins/jquery.form.js"></script>
-
     <link type="text/css" rel="stylesheet" href="/js/plugins/uploadifive/uploadifive.css" />
+    <script type="text/javascript" src="/js/plugins/jquery.form.js"></script>
     <script type="text/javascript" src="/js/plugins/uploadifive/jquery.uploadifive.min.js"></script>
 
 
