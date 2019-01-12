@@ -17,15 +17,11 @@
         <dependency>
             <groupId>cn.wolfcode</groupId>
             <artifactId>core</artifactId>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.taiping</groupId>
-            <artifactId>b-life-api</artifactId>
-            <version>0.0.1</version>
         </dependency>
     </dependencies>
 
