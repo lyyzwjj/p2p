@@ -75,7 +75,7 @@
                 <version>2.6</version>
             </dependency>
             <dependency>
-                <groupId>cn.wolfcode.p2p</groupId>
+                <groupId>cn.wolfcode</groupId>
                 <artifactId>core</artifactId>
                 <version>1.0.0</version>
             </dependency>
