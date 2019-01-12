@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.wolfcode.p2p</groupId>
+    <groupId>cn.wolfcode</groupId>
     <artifactId>p2p</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
@@ -14,6 +14,11 @@
         <version>1.5.12.RELEASE</version>
         <relativePath/>
     </parent>
+    <modules>
+        <module>core</module>
+        <module>mgrsite</module>
+        <module>website</module>
+    </modules>
     <build>
         <plugins>
             <plugin>
@@ -34,6 +39,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>1.16.20</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

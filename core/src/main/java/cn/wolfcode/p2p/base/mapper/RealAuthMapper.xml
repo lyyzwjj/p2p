@@ -56,8 +56,8 @@
 	aud.id aud_id,aud.username aud_username,
 	app.id app_id,app.username app_username
 	from realauth r 
-	left join loginInfo aud on r.auditor_id = aud.id
-	join loginInfo app on r.applier_id = app.id 
+	left join logininfo aud on r.auditor_id = aud.id
+	join logininfo app on r.applier_id = app.id 
 	where r.id = #{id}
   </select>
   <select id="queryData" resultMap="BaseResultMap">
@@ -65,8 +65,8 @@
 	aud.id aud_id,aud.username aud_username,
 	app.id app_id,app.username app_username
 	from realauth r 
-	left join loginInfo aud on r.auditor_id = aud.id
-	join loginInfo app on r.applier_id = app.id 
+	left join logininfo aud on r.auditor_id = aud.id
+	join logininfo app on r.applier_id = app.id 
 	<where>
             <if test="beginDate != null">
                 and r.applyTime >= #{beginDate}

@@ -4,12 +4,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>cn.wolfcode.p2p</groupId>
+	<groupId>cn.wolfcode</groupId>
 	<artifactId>core</artifactId>
 	<version>1.0.0</version>
+	<name>core</name>
 	<packaging>jar</packaging>
 	<parent>
-		<groupId>cn.wolfcode.p2p</groupId>
+		<groupId>cn.wolfcode</groupId>
 		<artifactId>p2p</artifactId>
 		<version>1.0.0</version>
 	</parent>

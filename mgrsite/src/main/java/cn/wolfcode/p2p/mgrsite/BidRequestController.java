@@ -23,6 +23,7 @@ import java.util.Date;
  */
 @Controller
 public class BidRequestController {
+
     @Autowired
     private IBidRequestService bidRequestService;
 
@@ -40,7 +41,7 @@ public class BidRequestController {
     public JSONResult publishAudit(Long id, String remark, int state, @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") Date publishTime) {
         JSONResult result = null;
         try {
-            bidRequestService.publishAudit(id, remark, state,publishTime);
+            bidRequestService.publishAudit(id, remark, state, publishTime);
             result = new JSONResult();
         } catch (DisplayableException ex) {
             ex.printStackTrace();
